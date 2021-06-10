@@ -1,0 +1,29 @@
+server:
+  port: 9999
+  tomcat:
+    #    指定当所有可以使用的处理请求的线程数都被使用时，可以放到处理队列中的请求数，超过这个数的请求将不予处理
+    accept-count: 2000
+    max-connections: 10000
+    threads:
+      max: 800
+      min-spare: 200
+
+servlet:
+  multipart:
+    # 上传文件总的最大值
+    max-request-size: 100MB
+    # 单个文件的最大值
+    max-file-size: 100MB
+
+spring:
+  application:
+    name: model
+  profiles:
+    active: @profileActive@
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  messages:
+    encoding: UTF-8
+    basename: i18n/messages
+    cache-duration: 7200s
